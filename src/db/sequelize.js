@@ -10,8 +10,9 @@ const sequelize = new Sequelize(PGDATABASE, PGUSER, PGPASSWORD, {
 export const connectDB = async () => {
   try {
     await sequelize.authenticate();
-    console.log("Authenticated")
+    console.log("DB is authenticated")
     await sequelize.sync({});
+    console.log("DB is established")
   } catch (error) {
     console.log(error);
   }
