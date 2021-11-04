@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import {syncSequelize} from "../src/db/sequelize.js"
+import { connectDB } from "../src/db/sequelize.js";
 
 const server = express(); // const app = express();
 const port = 3001; //server to listen on the port, it is stored into a variable
@@ -17,12 +17,11 @@ server.use(cors()); //cors connects BE with FE *** the same as app.use(cors());
 // server.use("/users", usersRouter);
 // server.use("/categories", categoriesRouter);
 
-
 server.listen(port, async () => {
-    try {
-      await syncSequelize();
-      console.log(`❤ Server is running on port ${port}`);
-    } catch (error) {
-      console.log(error);
-    }
-  });
+  try {
+    console.log(`❤ Server is running on port ${port}`);
+    await connectDB();
+  } catch (error) {
+    console.log(error);
+  }
+});
