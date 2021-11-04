@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { connectDB } from "../src/db/sequelize.js";
+import usersRouter from "./services/users/index.js";
 
 const server = express(); // const app = express();
 const port = 3001; //server to listen on the port, it is stored into a variable
@@ -14,7 +15,7 @@ server.use(cors()); //cors connects BE with FE *** the same as app.use(cors());
 // server.use("/cart", cartRouter);
 // server.use("/products", productsRouter);
 // server.use("/reviews", reviewsRouter);
-// server.use("/users", usersRouter);
+server.use("/users", usersRouter);
 // server.use("/categories", categoriesRouter);
 
 server.listen(port, async () => {

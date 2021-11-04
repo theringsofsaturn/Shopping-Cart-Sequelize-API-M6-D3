@@ -1,6 +1,4 @@
 import sequelize from "../sequelize.js" // importing the instance sequelize inside sequelize.js not from "sequelize" module
-
-import sequelize from "../index.js";
 import s from "sequelize";
 const { DataTypes } = s;
 
